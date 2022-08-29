@@ -1,0 +1,67 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk ProjectConfig.COMPILE_SDK
+
+    defaultConfig {
+        applicationId ProjectConfig.APPLICATION_ID
+        minSdk ProjectConfig.MIN_SDK
+        targetSdk ProjectConfig.TARGET_SDK
+        versionCode ProjectConfig.VERSION_CODE
+        versionName ProjectConfig.VERSION_NAME
+
+        testInstrumentationRunner ProjectConfig.ANDROIDJUNITRUNNER
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+
+}
+
+dependencies {
+   
+    implementation project(Modules.COMMON)
+    implementation project(Modules.DATA)
+
+    implementation Dependencies.MATERIAL
+    implementation Dependencies.CONSTRAINT_LAYOUT
+    implementation Dependencies.APP_COMPAT
+    implementation Dependencies.CORE_KTX
+    implementation Dependencies.ACTIVITY_KTX
+    implementation Dependencies.VIEW_MODEL
+    implementation Dependencies.LIVE_DATA
+    implementation Dependencies.HILT
+    kapt Dependencies.KAPT_HILT_COMPILER
+    implementation Dependencies.KOTLINX_COROUTINES_CORE
+    implementation Dependencies.KOTLINX_COROUTINES_ANDROID
+    implementation Dependencies.GSON
+    implementation Dependencies.RETROFIT
+    implementation Dependencies.GSON_CONVERTOR
+    implementation Dependencies.COIL
+    implementation Dependencies.MULTIDEX
+    implementation Dependencies.PAGING_RUNTIME
+    implementation Dependencies.KOTLIN_STDLIB
+    testImplementation Dependencies.TEST_JUNIT
+    androidTestImplementation Dependencies.TEST_JUNIT_EXT
+    androidTestImplementation Dependencies.TEST_JUNIT_ESPRESSO
+
+}

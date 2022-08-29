@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GithubPullRequest</string>
+    <string name="title">GithubPR</string>
+    <string name="created_at_s">Created At: %s [%s]</string>
+    <string name="closed_at_s">Closed At: %s [%s]</string>
+    <string name="userid_s">User Id: %s</string>
+    <string name="title_s">Title: %s</string>
+</resources>
